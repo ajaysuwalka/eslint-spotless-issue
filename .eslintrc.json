@@ -1,0 +1,112 @@
+{
+  "env": {
+    "es2021": true,
+    "jest/globals": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/all"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "jest",
+    "prettier"
+  ],
+  "rules": {
+    "indent": ["error", 1],
+    "block-spacing": ["error", "always"],
+    "no-multi-spaces": "error",
+    "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+    "no-multiple-empty-lines": "error",
+    "no-trailing-spaces": "error",
+    "no-whitespace-before-property": "error",
+    "space-before-blocks": ["error", "always"],
+        "space-before-function-paren": ["error", {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }],
+    "space-in-parens": ["error", "never"],
+    "space-infix-ops": ["error", { "int32Hint": false }],
+    "space-unary-ops": [
+      2, 
+      {
+        "words": true,
+        "nonwords": false,
+        "overrides": {
+          "new": false,
+          "++": false
+        }
+      }
+    ],
+    "array-bracket-spacing": ["error", "never"],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "computed-property-spacing": ["error", "never"],
+    "func-call-spacing": ["error", "never"],
+    "keyword-spacing": ["error", { "before": true , "after": true }],
+    "rest-spread-spacing": ["error", "never"],
+    "semi-spacing": ["error", {"before": false, "after": true}],
+    "switch-colon-spacing": ["error", {"after": true, "before": false}],
+    "template-curly-spacing": ["error", "never"],
+    "template-tag-spacing": ["error", "always"],
+    "yield-star-spacing": ["error", "after"],
+    "generator-star-spacing": ["error", "after"],
+    "semi": "off",
+    "@typescript-eslint/semi": [
+      "error"
+    ],
+    "no-new": 0,
+    "no-unused-vars": "off",
+    "object-curly-spacing": ["error", "always"],
+    "@typescript-eslint/no-floating-promises": ["error"],
+    "@typescript-eslint/no-misused-promises": ["error"],
+    "@typescript-eslint/no-unused-vars": "error",
+    "jest/prefer-expect-assertions": 0,
+    "jest/expect-expect": 0,
+    "jest/no-hooks": [
+      "error",
+      {
+        "allow": ["afterAll", "beforeEach"]
+      }
+    ],
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": true,
+          "ArrowFunctionExpression": true,
+          "FunctionExpression": true
+        }
+      }
+    ],
+    "max-len": ["error", { "code": 120 }],
+    "prettier/prettier": "error",
+    "jest/require-hook": "off"
+  },
+  "overrides": [{
+      "files": [ "**/*.test.ts" ],
+      "rules": {
+        "jest/require-hook": [ "error"]
+      }
+    },
+    {
+      "files": [ "*.ts"],
+      "rules": {
+        "no-undef": "off"
+      },
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      }
+    }
+  ]
+}
